@@ -31,78 +31,120 @@ footer{margin-top:60px;color:#8a857a;font-size:13px;text-align:center}
 <a class="back" href="index.html">&larr; Support / 支持首页</a>
 <div class="langbar"><a href="#en">English</a> · <a href="#zh">中文</a></div>
 <section id="en"><h1>Winnow — Privacy Policy</h1>
-<p>Effective date: June 22, 2026</p>
+<p>Effective date: November 23, 2026</p>
 <p>This Privacy Policy explains how Winnow (also “the app,” “we”) accesses, processes, and stores information related to your photos, videos, and usage when you use the macOS and iOS versions. Please read it in full before using the app. By using the app, you confirm that you have read, understood, and agree to the practices described here.</p>
 <h2>Article 1 — Scope</h2>
-<p>1.1 This policy applies to the macOS and iOS clients published under the name “Winnow” (影萃), together with their on-device analysis, similarity comparison, image-quality assessment, batch organization, and deletion-assist features. 1.2 It does not apply to Apple’s operating systems, iCloud, the App Store, or its payment and subscription systems, which Apple handles under its own terms and privacy policy. 1.3 It does not apply to any third-party software or service unrelated to this app that you obtain elsewhere.</p>
+<p>1.1 This policy applies to the macOS and iOS clients published under the name “Winnow” (影萃), together with their photo wall, All Photos browsing, Memories, Day Memories, Favorites sync, on-device home-screen safety filter, and manual deletion-assist features.</p>
+<p>1.2 It does not apply to Apple’s operating systems, iCloud, the App Store, or its payment and subscription systems, which Apple handles under its own terms and privacy policy.</p>
+<p>1.3 It does not apply to any third-party software or service unrelated to this app that you obtain elsewhere.</p>
 <h2>Article 2 — Our core privacy commitments</h2>
-<p>2.1 On-device processing: All recognition, similarity comparison, sharpness/exposure assessment, portrait and scene analysis, scoring, and cleanup suggestions for your photos and videos run locally on your device using Apple system frameworks such as PhotoKit and Vision. 2.2 Nothing leaves your device: In the current version, your photos, videos, thumbnails, recognition results, feature prints, kept records, review records, and deletion records are not uploaded to any developer server and are not sent to any third party. 2.3 No developer server: The current version contains no developer-operated backend server, account system, cloud sync, advertising SDK, analytics SDK, or crash-reporting SDK.</p>
+<p>2.1 On-device processing: The app uses Apple system frameworks such as PhotoKit and on-device SensitiveContentAnalysis to display the photo wall and memories, browse and favorite photos and videos, and handle your manual marks entirely on your device.</p>
+<p>2.2 Nothing leaves your device: In the current version, your photos, videos, thumbnails, browsing records, pending-deletion marks, cumulative cleanup counts, and session deletion records are not uploaded to any developer server and are not sent to any third party.</p>
+<p>2.3 No developer server: The current version contains no developer-operated backend server, account system, cloud sync, advertising SDK, analytics SDK, or crash-reporting SDK.</p>
 <h2>Article 3 — How we access photos and videos</h2>
-<p>3.1 The app reads the photos and videos within the scope you authorize (including “full access” or “limited access”) via the system photo-library permission, in order to analyze and organize them locally. 3.2 You can view, change, or revoke this authorization at any time in System Settings → (Privacy &amp; Security) → Photos. After revoking, the app can no longer read your library and related features become unavailable. 3.3 If you grant only “limited access,” the app can access only the photos and videos you select.</p>
+<p>3.1 The app reads the photos and videos within the scope you authorize (including “full access” or “limited access”) via the system photo-library permission to support browsing, favoriting, and manual organization.</p>
+<p>3.2 You can view, change, or revoke this authorization at any time in System Settings → (Privacy &amp; Security) → Photos. Under iOS “Limited Access,” you can also adjust selected photos via Settings → Manage Accessible Photos inside the app. After revoking authorization, the app can no longer read your library and related features become unavailable.</p>
+<p>3.3 If you grant only “limited access,” the app can access only the photos and videos you select.</p>
 <h2>Article 4 — Types of data processed on device</h2>
-<p>To provide similarity grouping, flaw detection, scoring, and cleanup suggestions, the app may read and process the following locally: pixel content and thumbnails of photos and videos, capture and modification dates, media type (photo / Live Photo / video), file size, source or album information, and image feature prints and quality/portrait/scene metrics computed by the system Vision framework. All such processing occurs in local memory or local storage.</p>
+<p>4.1 To provide the photo wall, browsing, favorites, and memories, the app may read and process locally: pixel content and thumbnails of photos and videos, capture and modification dates, media type (photo / Live Photo / video), favorite status, and file size. All such processing occurs in local memory or local storage.</p>
+<p>4.2 If you enable the “Home Screen Safety Filter,” the app invokes Apple’s on-device SensitiveContentAnalysis framework locally on photo-wall candidates solely to decide whether to display them on the home photo wall. Results never leave your device.</p>
 <h2>Article 5 — Locally stored data and its location</h2>
-<p>5.1 To speed up repeat scans, reduce duplicate suggestions, and remember your choices, the app stores the following locally (in the app sandbox container or the Application Support directory): the analysis cache and image feature prints, identifiers of photos you manually marked “keep,” identifiers of similar groups you have reviewed, the “month and count” used to compute the free version’s monthly deletion quota, and a flag for whether you have seen the tutorial. 5.2 This local data contains no account information that could independently identify you and does not leave your device. 5.3 You can clear the analysis cache in Settings → Cache, or clear kept records in Settings → Kept. Uninstalling the app generally removes its local data as well.</p>
+<p>5.1 To remember your preferences, unfinished organization progress, and free deletion quota, the app stores the following locally (in the app sandbox container, UserDefaults, or the Application Support directory):</p>
+<p>(a) Interface and experience preferences (such as appearance theme, app language, home safety filter, photo wall scope, default video mute, haptics toggle, and tutorial-seen state);</p>
+<p>(b) Free deletion quota counters (<code>deletequota.json</code>, storing only the calendar month, monthly quota used, and remaining welcome quota — no photo data);</p>
+<p>(c) Pending-deletion mark list (<code>pending_deletions.json</code>, storing only library-scoped local asset identifiers not yet deleted, cleared once deleted or unmarked);</p>
+<p>(d) Local cumulative cleanup stats (<code>cleanupstats.json</code>, storing only total deleted count and total freed bytes — no photo identifiers or content).</p>
+<p>5.2 This local data contains no account information that could independently identify you and does not leave your device.</p>
+<p>5.3 Preview caches only speed up browsing. Uninstalling the app generally removes its local data as well.</p>
 <h2>Article 6 — What we do not collect, upload, or share</h2>
-<p>6.1 We do not collect your photos, videos, or their content for any developer-side purpose. 6.2 We do not track users across apps or websites, do not build user profiles, and do not sell or share any data with data brokers. 6.3 The app’s privacy manifest (PrivacyInfo.xcprivacy) declares: no tracking, no tracking domains, and no developer-side data collection.</p>
+<p>6.1 We do not collect your photos, videos, or their content for any developer-side purpose.</p>
+<p>6.2 We do not track users across apps or websites, do not build user profiles, and do not sell or share any data with data brokers.</p>
+<p>6.3 The app’s privacy manifest (PrivacyInfo.xcprivacy) declares: no tracking, no tracking domains, and no developer-side data collection.</p>
 <h2>Article 7 — iCloud and Apple system services</h2>
-<p>7.1 If your original photos or videos are stored only in iCloud and not downloaded locally, when the app needs the originals for analysis or deletion, Apple’s photo system may download content on demand according to your system and iCloud settings. That download is handled by Apple system services and governed by Apple’s terms and privacy policy. 7.2 Deletion is performed through Apple’s system photo-deletion flow; whether it syncs to iCloud and other devices depends on your iCloud Photos settings.</p>
+<p>7.1 If your original photos or videos are stored only in iCloud and not downloaded locally, when the app needs originals for viewing, Apple’s photo system may download content on demand according to your system and iCloud settings. That download is handled by Apple system services and governed by Apple’s terms and privacy policy.</p>
+<p>7.2 Both favoriting and deletion operate through Apple’s system Photos framework (PhotoKit). Whether favorite changes and deletions sync to iCloud and your other devices depends on your iCloud Photos settings.</p>
 <h2>Article 8 — Subscription and payment data</h2>
-<p>8.1 The app’s Pro entitlement is purchased through Apple’s App Store in-app purchase (StoreKit). Payment, billing, your Apple ID, and transaction receipts are handled by Apple; the developer does not receive sensitive payment details such as card numbers. 8.2 The app only reads, via StoreKit, whether a valid Pro entitlement currently exists, in order to decide locally whether to remove the deletion limit. 8.3 For more about subscriptions, see “Subscription Details.”</p>
-<h2>Article 9 — Required-reason API declarations</h2>
-<p>As required by Apple, the app declares in its privacy manifest the “required-reason APIs” it uses. For example, the app uses UserDefaults solely to store your preferences and state locally (such as whether you have seen the tutorial), not for tracking or sharing with third parties.</p>
-<h2>Article 10 — Data retention and deletion</h2>
-<p>10.1 Local analysis caches and records are overwritten on repeat scans and do not accumulate indefinitely; when a photo is removed from the library, its cache is cleaned up on the next scan. 10.2 You can clear the cache and kept records at any time via the in-app controls; these actions are irreversible, and after clearing the cache the next scan must re-analyze all photos.</p>
-<h2>Article 11 — Children’s privacy</h2>
+<p>8.1 The app’s Pro entitlement is purchased through Apple’s App Store in-app purchase (StoreKit), including auto-renewing subscriptions, a one-time lifetime purchase, and App Store Offer Codes. Payment, billing, your Apple ID, and transaction receipts are handled by Apple; the developer does not receive sensitive payment details such as card numbers.</p>
+<p>8.2 The app only reads, via StoreKit, whether a valid Pro entitlement currently exists, in order to decide locally whether to remove the deletion limit.</p>
+<p>8.3 For more about subscriptions and quotas, see “Subscription Details.”</p>
+<h2>Article 9 — Feedback and email support</h2>
+<p>When you choose “Settings → Send Feedback,” the app simply opens your system Mail client with a draft addressed to our support email (or copies our support email address locally if no mail client is configured). The subject line may pre-fill the app version and OS version; whether to send the email and its content are entirely up to you.</p>
+<h2>Article 10 — Required-reason API declarations</h2>
+<p>As required by Apple, the app declares in its privacy manifest the “required-reason APIs” it uses. For example, UserDefaults is used solely to store your local preferences and state (such as appearance, language, and tutorial state), never for tracking or sharing with third parties.</p>
+<h2>Article 11 — Data retention and deletion</h2>
+<p>11.1 Preview caches update dynamically during browsing. The “This Session” deletion list stays in memory and clears when you quit the app.</p>
+<p>11.2 Unconfirmed pending-deletion marks are persisted locally so you can review them across launches, and can be cleared in one tap from the pending list. Preferences, quota counters, and cumulative local stats stay on-device and are generally removed when you uninstall the app.</p>
+<h2>Article 12 — Children’s privacy</h2>
 <p>The app is not designed for children and does not knowingly collect children’s personal information. Because the app collects no data on the developer side, related risk is minimized.</p>
-<h2>Article 12 — Your rights</h2>
-<p>Because the app currently does not collect or store your personal data on the developer side, most rights of access, correction, deletion, and portability can be exercised by you directly through on-device actions (such as clearing the cache, revoking photo access, or uninstalling the app). Under applicable data-protection laws (such as the GDPR, the CCPA, and China’s PIPL), if you still wish to exercise such rights, you may contact us using the details at the end of this document.</p>
-<h2>Article 13 — Third parties</h2>
+<h2>Article 13 — Your rights</h2>
+<p>Because the app currently does not collect or store your personal data on the developer side, most rights of access, correction, deletion, and portability can be exercised directly on your device (such as clearing pending marks, revoking photo access, or uninstalling the app). Under applicable data-protection laws (such as the GDPR, the CCPA, and China’s PIPL), if you still wish to exercise such rights, you may contact us using the details at the end of this document.</p>
+<h2>Article 14 — Third parties</h2>
 <p>Other than Apple’s operating systems and App Store ecosystem, the current version integrates no third-party data processors. If third-party services are introduced in the future, we will update this policy, the privacy manifest, and the App Store privacy labels before enabling them.</p>
-<h2>Article 14 — Changes to this policy</h2>
-<p>If a future version adds features that change how data is processed — such as accounts, cloud sync, crash reporting, analytics, customer-support feedback, or third-party SDKs — we will update this policy, display it in the app, and seek your consent again where necessary.</p>
-<h2>Article 15 — Governing law</h2>
-<p>To the extent permitted by law, the interpretation and application of this policy follow the mandatory data-protection rules of your jurisdiction; the parts relating to Apple services are additionally governed by Apple’s terms.</p>
+<h2>Article 15 — Changes and governing law</h2>
+<p>15.1 If a future version adds features that change how data is processed — such as accounts, cloud sync, crash reporting, analytics, or third-party SDKs — we will update this policy, display it in the app, and seek your consent again where necessary.</p>
+<p>15.2 To the extent permitted by law, the interpretation and application of this policy follow the mandatory data-protection rules of your jurisdiction; the parts relating to Apple services are additionally governed by Apple’s terms.</p>
 <hr>
-<p>Version &amp; updates: This document is dated June 22, 2026. We may update it from time to time; the latest version is shown in the app, and material changes are announced in-app. Continued use constitutes acceptance of the updated version.</p>
-<p>Developer &amp; contact: Winnow (影萃). For questions, complaints, or to exercise your rights regarding this document, contact us via the developer contact on the App Store product page or the support channel listed in the app’s Settings. Support email: alexliunew@gmail.com; Support &amp; privacy policy: https://627666.github.io/winnow-support/</p></section>
+<p>Version &amp; updates: This document is dated November 23, 2026. We may update it from time to time; the latest version is shown in the app, and material changes are announced in-app. Continued use constitutes acceptance of the updated version.</p>
+<p>Developer &amp; contact: Winnow (影萃). For questions, complaints, or to exercise your rights regarding this document, contact us via the developer contact on the App Store product page or “Settings → Send Feedback” in the app. Support email: alexliunew@gmail.com; Support &amp; privacy policy: https://627666.github.io/winnow-support/</p>
+</section>
 <hr>
 <section id="zh"><h1>影萃 隐私政策</h1>
-<p>生效日期：2026 年 6 月 22 日</p>
+<p>生效日期：2026 年 11 月 23 日</p>
 <p>本《隐私政策》说明影萃（以下简称「本应用」「我们」）在你使用 macOS 与 iOS 版本时，如何访问、处理与存储与你的照片、视频及使用行为相关的信息。请在使用本应用前完整阅读本政策。你开始使用本应用，即表示你已阅读、理解并同意本政策所述的处理方式。</p>
 <h2>第 1 条 适用范围</h2>
-<p>1.1 本政策适用于以「影萃」为名发布的 macOS 与 iOS 客户端，以及随附的本地分析、相似度比对、画质评估、批量整理与删除辅助功能。 1.2 本政策不适用于 Apple 提供的操作系统、iCloud、App Store 及其支付与订阅体系，这些服务由 Apple 依其自身条款与隐私政策处理。 1.3 本政策不适用于你通过其它途径获取、与本应用无关的任何第三方软件或服务。</p>
+<p>1.1 本政策适用于以「影萃」为名发布的 macOS 与 iOS 客户端，以及随附的照片墙、全部照片浏览、拾光回忆、当日回忆、收藏同步、首页安全过滤与手动删除辅助功能。</p>
+<p>1.2 本政策不适用于 Apple 提供的操作系统、iCloud、App Store 及其支付与订阅体系，这些服务由 Apple 依其自身条款与隐私政策处理。</p>
+<p>1.3 本政策不适用于你通过其它途径获取、与本应用无关的任何第三方软件或服务。</p>
 <h2>第 2 条 我们的核心隐私承诺</h2>
-<p>2.1 本地处理：本应用对照片、视频的全部识别、相似度比对、清晰度与曝光评估、人像与场景分析、评分与清理建议，均在你的设备本地使用 Apple 提供的 PhotoKit 与 Vision 等系统框架完成。 2.2 不离开设备：在本应用当前版本中，你的照片、视频、缩略图、识别结果、特征指纹、保留记录、浏览记录与删除记录不会被上传到开发者服务器，也不会发送给任何第三方。 2.3 无开发者服务器：本应用当前版本不包含由开发者运营的后端服务器、账号系统、云同步、广告 SDK、统计分析 SDK 或崩溃上报 SDK。</p>
+<p>2.1 本地处理：本应用使用 Apple 提供的 PhotoKit 及设备端敏感内容分析（SensitiveContentAnalysis）等系统框架，在你的设备本地展示照片墙、浏览与收藏照片和视频，并处理你的手动标记。</p>
+<p>2.2 不离开设备：在本应用当前版本中，你的照片、视频、缩略图、浏览记录、待删除标记、累计清理统计与本次删除记录不会被上传到开发者服务器，也不会发送给任何第三方。</p>
+<p>2.3 无开发者服务器：本应用当前版本不包含由开发者运营的后端服务器、账号系统、云同步、广告 SDK、统计分析 SDK 或崩溃上报 SDK。</p>
 <h2>第 3 条 我们如何访问照片与视频</h2>
-<p>3.1 本应用通过系统照片库授权（包括「完全访问」或「有限访问」）读取你授权范围内的照片与视频，用于在本地进行分析与整理。 3.2 你可以随时在系统「设置 →（隐私与安全性）→ 照片」中查看、调整或撤销授权。撤销授权后，本应用将无法继续读取照片库，相关功能将不可用。 3.3 若你仅授予「有限访问」，本应用只能访问你选定的照片与视频。</p>
+<p>3.1 本应用通过系统照片库授权（包括「完全访问」或「有限访问」）读取你授权范围内的照片与视频，用于浏览、收藏与手动整理。</p>
+<p>3.2 你可以随时在系统「设置 →（隐私与安全性）→ 照片」中查看、调整或撤销授权；在 iOS「有限访问」模式下，也可通过应用内「设置 → 管理可访问的照片」调整授权范围。撤销授权后，本应用将无法继续读取照片库，相关功能将不可用。</p>
+<p>3.3 若你仅授予「有限访问」，本应用只能访问你选定的照片与视频。</p>
 <h2>第 4 条 在设备本地处理的数据类型</h2>
-<p>为实现相似分组、瑕疵识别、评分与清理建议，本应用可能在本地读取并处理以下信息：照片与视频的像素内容、缩略图、拍摄时间与修改时间、媒体类型（图片／实况／视频）、文件体积、所属相册或来源信息、由系统 Vision 框架计算的图像特征指纹与质量／人像／场景指标。上述处理均在本地内存或本地存储中进行。</p>
+<p>4.1 为展示照片墙、浏览、收藏与回忆，本应用可能在本地读取照片与视频的像素内容、缩略图、拍摄与修改时间、媒体类型（图片／实况／视频）、收藏状态及文件体积。上述处理均在本地内存或本地存储中进行。</p>
+<p>4.2 若你开启了「首页安全过滤」，本应用会调用 Apple 系统提供的设备端 SensitiveContentAnalysis 框架对首页漂流照片墙候选图片进行本地检测，结果仅用于决定是否显示在首页照片墙，不会上传或离开设备。</p>
 <h2>第 5 条 本地存储的数据与位置</h2>
-<p>5.1 为加快重复扫描、减少重复建议并记住你的选择，本应用会在设备本地（应用沙盒容器或 Application Support 目录）保存：分析缓存与图像特征指纹、你手动确认「保留」的照片标识、已浏览相似组的标识、用于免费版每月删除额度计算的「自然月与当月删除计数」、以及是否已查看新手教程的标记。 5.2 上述本地数据不包含可独立标识你个人身份的账户信息，且不会离开设备。 5.3 你可以在「设置 → 缓存」中清空分析缓存，或在「设置 → 手动保留」中清空保留记录；卸载本应用通常会一并移除其本地数据。</p>
+<p>5.1 为记住你的偏好、未完成的整理进度与删除额度，本应用会在设备本地（应用沙盒容器、UserDefaults 或 Application Support 目录）保存：</p>
+<p>（a）界面与体验偏好（如外观主题、界面语言、首页安全过滤、照片墙展示范围、视频默认静音、触感反馈开关及是否已查看新手教程）；</p>
+<p>（b）免费版删除额度计数（<code>deletequota.json</code>，仅记录自然月、当月已用月度额度与新手赠送剩余额度，不含任何照片内容）；</p>
+<p>（c）待删除标记清单（<code>pending_deletions.json</code>，仅按图库保存尚未确认删除的资产本地标识符，确认删除或移出标记后即清除）；</p>
+<p>（d）本机累计清理统计（<code>cleanupstats.json</code>，仅记录累计已删除张数与释放字节总数，不含任何照片标识或内容）。</p>
+<p>5.2 上述本地数据不包含可独立识别你个人身份的账户信息，且不会离开设备。</p>
+<p>5.3 预览缓存仅用于加快浏览；卸载本应用通常会一并移除其本地数据。</p>
 <h2>第 6 条 我们不收集、不上传、不共享的内容</h2>
-<p>6.1 我们不收集你的照片、视频或其内容用于开发者侧的任何目的。 6.2 我们不进行跨应用或跨网站的用户追踪，不构建用户画像，不向数据经纪商出售或共享任何数据。 6.3 本应用的隐私清单（PrivacyInfo.xcprivacy）声明：不进行追踪、不存在追踪域名、开发者侧不收集数据。</p>
+<p>6.1 我们不收集你的照片、视频或其内容用于开发者侧的任何目的。</p>
+<p>6.2 我们不进行跨应用或跨网站的用户追踪，不构建用户画像，不向数据经纪商出售或共享任何数据。</p>
+<p>6.3 本应用的隐私清单（PrivacyInfo.xcprivacy）声明：不进行追踪、不存在追踪域名、开发者侧不收集数据。</p>
 <h2>第 7 条 iCloud 与 Apple 系统服务</h2>
-<p>7.1 若你的原始照片或视频仅存储于 iCloud 而未下载到本机，当本应用需要读取原片进行分析或删除时，Apple 的照片系统可能依据你的系统与 iCloud 设置按需下载内容。该下载过程由 Apple 系统服务处理，受 Apple 的条款与隐私政策约束。 7.2 删除操作通过 Apple 系统照片删除流程执行，是否同步到 iCloud 及其它设备，由你的 iCloud 照片设置决定。</p>
+<p>7.1 若你的原始照片或视频仅存储于 iCloud 而未下载到本机，当本应用需要读取原片进行浏览时，Apple 的照片系统可能依据你的系统与 iCloud 设置按需下载内容。该下载过程由 Apple 系统服务处理，受 Apple 的条款与隐私政策约束。</p>
+<p>7.2 收藏与删除操作均通过 Apple 系统照片框架（PhotoKit）直接作用于系统图库；收藏状态变更与删除结果是否同步到 iCloud 及其它设备，由你的 iCloud 照片设置决定。</p>
 <h2>第 8 条 订阅与支付相关数据</h2>
-<p>8.1 本应用的 Pro 权益通过 Apple 的 App Store 内购买（StoreKit）实现。支付、账单、Apple ID 及交易凭证由 Apple 处理，开发者不会收到你的支付卡号等敏感支付信息。 8.2 本应用仅通过 StoreKit 读取当前是否拥有有效的 Pro 权益，用于在本地判断是否解除删除上限。 8.3 有关订阅的更多说明，请参见《订阅说明》。</p>
-<h2>第 9 条 必要功能 API 使用声明</h2>
-<p>依据 Apple 要求，本应用在隐私清单中声明其使用的「需说明用途的 API」。例如，本应用使用 UserDefaults 仅为在设备本地保存你的偏好与状态（如是否已查看教程），不用于追踪或与第三方共享。</p>
-<h2>第 10 条 数据保留与删除</h2>
-<p>10.1 本地分析缓存与记录会在你重复扫描时被覆盖更新，不会无限累积；从图库中删除的照片，其对应缓存会在下次扫描时被清理。 10.2 你可随时通过应用内入口清空缓存与保留记录；这些操作不可撤销，且清空缓存后下次扫描需要重新分析。</p>
-<h2>第 11 条 儿童隐私</h2>
+<p>8.1 本应用的 Pro 权益通过 Apple 的 App Store 内购买（StoreKit）实现，包括自动续期订阅、一次性永久买断及 App Store 优惠码兑换。支付、账单、Apple ID 及交易凭证均由 Apple 处理，开发者不会收到你的支付卡号等敏感支付信息。</p>
+<p>8.2 本应用仅通过 StoreKit 读取当前是否拥有有效的 Pro 权益，用于在本地判断是否解除删除上限。</p>
+<p>8.3 有关订阅与额度的更多说明，请参见应用内的《订阅说明》。</p>
+<h2>第 9 条 意见反馈与邮件联系</h2>
+<p>当你主动点击「设置 → 意见反馈」时，本应用仅调用系统邮件客户端起草发往开发者支持邮箱的邮件（若设备未配置邮件客户端，则仅将支持邮箱地址复制到系统剪贴板）。邮件标题中可能预填应用版本号与系统版本，是否发送及邮件正文完全由你自主决定。</p>
+<h2>第 10 条 必要功能 API 使用声明</h2>
+<p>依据 Apple 要求，本应用在隐私清单中声明其使用的「需说明用途的 API」。例如，本应用使用 UserDefaults 仅为在设备本地保存你的偏好与状态（如外观、语言与教程状态），不用于追踪或与第三方共享。</p>
+<h2>第 11 条 数据保留与删除</h2>
+<p>11.1 预览缓存随浏览动态更新；「本次删除」列表仅保存在本次运行内存中，退出应用后清空。</p>
+<p>11.2 尚未确认删除的「待删除标记」保存在本机以便跨次打开继续复核，你可随时在待删除清单中一键清空；界面偏好、免费额度与累计统计保存在本机，卸载应用通常会一并清除。</p>
+<h2>第 12 条 儿童隐私</h2>
 <p>本应用并非面向儿童设计，也不会有意收集儿童的个人信息。由于本应用不在开发者侧收集任何数据，相关风险已被最大程度降低。</p>
-<h2>第 12 条 你的权利</h2>
-<p>因本应用当前不在开发者侧收集或存储你的个人数据，多数数据访问、更正、删除与可携带等权利可由你通过本机操作（如清空缓存、撤销照片授权、卸载应用）直接实现。在适用的数据保护法律（如《通用数据保护条例》GDPR、《加州消费者隐私法》CCPA、中国《个人信息保护法》等）框架下，若你仍希望行使相关权利，可通过本文结尾的方式联系我们。</p>
-<h2>第 13 条 第三方</h2>
+<h2>第 13 条 你的权利</h2>
+<p>因本应用当前不在开发者侧收集或存储你的个人数据，多数数据访问、更正、删除与可携带等权利可由你通过本机操作（如清空待删除标记、撤销照片授权、卸载应用）直接实现。在适用的数据保护法律（如《通用数据保护条例》GDPR、《加州消费者隐私法》CCPA、中国《个人信息保护法》等）框架下，若你仍希望行使相关权利，可通过本文结尾的联系方式联系我们。</p>
+<h2>第 14 条 第三方</h2>
 <p>除 Apple 提供的操作系统与 App Store 生态外，本应用当前版本不集成第三方数据处理者。若未来引入第三方服务，我们会更新本政策、隐私清单与 App Store 隐私标签后再行启用。</p>
-<h2>第 14 条 政策变更</h2>
-<p>若未来版本加入账号、云同步、崩溃上报、统计分析、客服反馈或第三方 SDK 等会改变数据处理方式的功能，我们将更新本政策并在应用内展示，必要时再次征得你的同意。</p>
-<h2>第 15 条 法律适用</h2>
-<p>本政策的解释与适用，在法律允许的范围内，适用你所在司法管辖区的强制性数据保护规定；与 Apple 服务相关的部分，另受 Apple 相应条款约束。</p>
+<h2>第 15 条 政策变更与法律适用</h2>
+<p>15.1 若未来版本加入账号、云同步、崩溃上报、统计分析或第三方 SDK 等会改变数据处理方式的功能，我们将更新本政策并在应用内展示，必要时再次征得你的同意。</p>
+<p>15.2 本政策的解释与适用，在法律允许的范围内，适用你所在司法管辖区的强制性数据保护规定；与 Apple 服务相关的部分，另受 Apple 相应条款约束。</p>
 <hr>
-<p>版本与更新：本文件版本 2026 年 6 月 22 日。我们可能不时更新本文件，更新后会在应用内同步展示最新版本，重大变更会通过应用内提示告知。继续使用即视为接受更新后的版本。</p>
-<p>开发者与联系方式：影萃（PhotoCleaner）。如对本文件有疑问、投诉或希望行使相关权利，请通过 App Store 商品页提供的开发者联系方式，或应用内「设置」中公布的支持渠道与我们联系。支持邮箱：alexliunew@gmail.com；支持与隐私政策页面：https://627666.github.io/winnow-support/</p></section>
+<p>版本与更新：本文件版本 2026 年 11 月 23 日。我们可能不时更新本文件，更新后会在应用内同步展示最新版本，重大变更会通过应用内提示告知。继续使用即视为接受更新后的版本。</p>
+<p>开发者与联系方式：影萃（Winnow）。如对本文件有疑问、投诉或希望行使相关权利，请通过 App Store 商品页提供的开发者联系方式，或应用内「设置 → 意见反馈」与我们联系。支持邮箱：alexliunew@gmail.com；支持与隐私政策页面：https://627666.github.io/winnow-support/</p>
+</section>
 
 <footer>© 2026 Liu Aoqi · Winnow / 影萃 · <a href="mailto:alexliunew@gmail.com">alexliunew@gmail.com</a></footer>
 </div></body></html>
